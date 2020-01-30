@@ -1,0 +1,1 @@
+This is Flask project for my educational purposes
