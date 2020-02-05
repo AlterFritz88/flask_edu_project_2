@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>CSSDesk</title>
-    <style type="text/css">
-      
-      body { background-color: #fff; }
-      
-      
-    </style>
-  </head>
-  <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Stepik Travel</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block container %}
 <div class="container mt-3">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -57,78 +39,19 @@
 
     <!-- CARDS -->
 
-    <div class="row mt-5" data-test="cards">
-
+    <div class="row mt-5" data-test="cards">{% for item in data%}
         <div class="col-4" data-test="card">
             <div class="card mb-3" >
-            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
+            <img src="{{item.picture}}" class="card-img-top img-fluid" data-test="picture">
             <div class="card-body">
-              <h5 class="card-title">Hotel title</h5>
-             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+              <h5 class="card-title">{{item.title}}</h5>
+             <p class="card-text">{{item.description|truncate(300, True)}}</p>
+                <a href="/tours/{{item.id}}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
             </div>
         </div>
-        </div>
+        </div>{% endfor %}
 
-        <div class="col-4" data-test="card">
-            <div class="card mb-3" >
-            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
-            <div class="card-body">
-              <h5 class="card-title">Hotel title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
-            </div>
-        </div>
-        </div>
 
-        <div class="col-4" data-test="card">
-            <div class="card mb-3" >
-            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
-            <div class="card-body">
-             <h5 class="card-title">Hotel title</h5>
-             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-             <a href="" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-4" data-test="card">
-            <div class="card mb-3" >
-            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
-            <div class="card-body">
-              <h5 class="card-title">Hotel title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-4" data-test="card">
-            <div class="card mb-3" >
-            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
-            <div class="card-body">
-              <h5 class="card-title">Hotel title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-4" data-test="card">
-            <div class="card mb-3" >
-            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
-            <div class="card-body">
-              <h5 class="card-title">Hotel title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="" class="btn btn-sm btn-primary"  data-test="tourlink">Подробнее</a>
-            </div>
-        </div>
-        </div>
     </div>
-
 </div>
-
-</body>
-</html>
-  </body>
-</html>
+{% endblock %}
